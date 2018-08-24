@@ -9,10 +9,10 @@ export class DouCliCreate {
    * Function used to call the appSetup script
    * @see scripts/appSetup
    */
-  appSetup = () => {
+  appSetup = (framework:any) => {
     const scriptPath = `${path.join(__dirname, "../scripts/app-setup.js")}`;
     process.stdout.write(chalk.blue("Creating app...\n"));
-    cp.execSync(`node ${scriptPath}`, {
+    cp.execSync(`node ${scriptPath} ${framework}`, {
       stdio: "inherit"
     });
   };

@@ -7,7 +7,7 @@ import * as fs from 'fs';
 
 export class AppSetup {
     currentDir:any = process.cwd();
-    framework: any;
+    framework: any = process.argv[2];
     repositories:any = {
         react: 'https://github.com/andoniArb/react-base-app.git',
         vue: 'https://github.com/andoniArb/vue-base-app.git',
@@ -53,21 +53,9 @@ export class AppSetup {
             default: 'app_oldv'
         }
     ];
-    frameworksApp:any = [
-        {
-            type: 'list',
-            name: 'frameworkApp',
-            message: 'Want framework want to choice',
-            choices: ['react', 'vue', 'angular'],
-            default: 'angular'
-        }
-    ];
 
     public initialize(){
-        inquirer.prompt(this.frameworksApp).then((answers:any) => {
-            this.framework = answers.frameworkApp;
             this.appSetupScript();
-        });
     }
 
     /**

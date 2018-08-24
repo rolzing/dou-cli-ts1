@@ -1,8 +1,7 @@
 import * as cp from "child_process";
-import chalk from "chalk";
 import * as inquirer from "inquirer";
-import * as path from "path";
-import * as fs from "fs";
+
+
 
 export class AuthSetup {
   questions = [
