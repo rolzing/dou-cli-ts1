@@ -1,16 +1,18 @@
 import * as commander from 'commander';
 import { Writer } from '../writer';
+import {DouCliCreate} from "./dou-cli-create";
 
 export class Write {
 
     private program: commander.CommanderStatic;
     private package: any;
     private writer: Writer;
-
+    douCliCreate:DouCliCreate;
     constructor() {
         this.program = commander;
         this.package = require('../../package.json');
         this.writer = new Writer();
+        this.douCliCreate = new DouCliCreate();
     }
 
     public initialize() {
@@ -19,16 +21,7 @@ export class Write {
             .option('-m, --message [value]', 'Say hello!')
             .parse(process.argv);
 
-        if (this.program.message != null) {
-
-            if (typeof this.program.message !== 'string') {
-                this.writer.write();
-            } else {
-                this.writer.write(this.program.message);
-            }
-
-            process.exit();
-        }
+        this.douCliCreate.appSetup();
 
         this.program.help();
     }

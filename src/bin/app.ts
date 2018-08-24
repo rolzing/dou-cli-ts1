@@ -15,6 +15,7 @@ export class App {
 
     public initialize() {
         process.stdout.write(chalk.blue(figlet.textSync('dOu')));
+        process.stdout.write('\n');
 
         this.program
             .version(this.package.version)

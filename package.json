@@ -38,8 +38,10 @@
 		"typescript": "^2.2.1"
 	},
 	"dependencies": {
+		"@types/inquirer": "0.0.43",
 		"chalk": "^2.4.1",
 		"commander": "^2.9.0",
-		"figlet": "^1.2.0"
+		"figlet": "^1.2.0",
+		"inquirer": "^6.2.0"
 	}
 }
