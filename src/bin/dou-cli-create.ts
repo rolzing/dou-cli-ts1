@@ -23,7 +23,7 @@ export class DouCliCreate {
    * @see scripts/authSetup
    */
   authSetup = () => {
-    const scriptPath = `${path.join(__dirname, "scripts/authSetup.js")}`;
+    const scriptPath = `${path.join(__dirname, "../scripts/auth-setup.js")}`;
     process.stdout.write(chalk.blue("Mounting auth services...\n"));
     cp.execSync(`node ${scriptPath} `, {
       stdio: "inherit"

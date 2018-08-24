@@ -207,3 +207,9 @@ export class AppSetup {
 }
 let appSetup = new AppSetup();
 appSetup.initialize();
+
+interface repository {
+   repository: {
+        name: string
+    }
+}
