@@ -1,5 +1,6 @@
 import * as cp from "child_process";
 import * as inquirer from "inquirer";
+const path = require("path");
 
 
 
@@ -53,12 +54,7 @@ export class AuthSetup {
     process.stdout.write(
       "Cleaning any existing postgress and keycloak containers... \n"
     );
-    cp.execSync(
-      `
-    set -x
-    docker kill postgres || true && docker rm postgres || true
-    docker kill keycloak || true && docker rm keycloak || true
-    `,
+    cp.spawnSync('bash',[__dirname + '/../../src/scripts/shells/clean_postgress_keycloack_container.sh'],
       {
         stdio: "inherit"
       }
@@ -67,10 +63,7 @@ export class AuthSetup {
 
   mountPostgressContainer = () => {
     process.stdout.write("Mounting postgress docker container... \n");
-    cp.execSync(
-      `
-    docker run --name postgres -e POSTGRES_DATABASE=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=password -e POSTGRES_ROOT_PASSWORD=password -d postgres
-    `,
+    cp.spawnSync('bash',[__dirname + '/../../src/scripts/shells/mounting_postgress_docker.sh'],
       {
         stdio: "inherit"
       }
@@ -102,14 +95,7 @@ export class AuthSetup {
 
   checkIfDockerIsAlreadyInstalled = () => {
     process.stdout.write("Check if docker is already installed... \n");
-    cp.execSync(
-      `
-    if ! [ -x "$(command -v docker)" ]; then 
-    echo "command 'docker' does not exist... installing docker"
-    brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
-    else 
-    echo "command 'docker' is a valid command"
-    fi;`,
+    cp.spawnSync('bash',[__dirname + '/../../src/scripts/shells/check_docker_deamon.sh'],
       {
         stdio: "inherit"
       }
@@ -117,22 +103,10 @@ export class AuthSetup {
   };
 
   checkIfDockerDeamonIsRunning = () => {
+    
     process.stdout.write("Check if docker deamon is running... \n");
-    cp.execSync(
-      `#!/bin/bash
-    #Open Docker, only if is not running
-    if (! docker stats --no-stream ); then
-    # On Mac OS this would be the terminal command to launch Docker
-    open /Applications/Docker.app
-    #Wait until Docker daemon is running and has completed initialisation
-    while (! docker stats --no-stream ); do
-    # Docker takes a few seconds to initialize
-    echo "Waiting for Docker to launch..."
-    sleep 1
-    done
-    fi
-    `,
-      { stdio: "inherit" }
+    cp.spawnSync('bash', [__dirname + '/../../src/scripts/shells/check_docker_deamon.sh']
+      ,{ stdio: "inherit" }
     );
   };
 }
