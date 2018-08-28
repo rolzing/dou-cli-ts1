@@ -1,6 +1,6 @@
 {
-	"name": "dou-cli-t",
-	"version": "0.1.0",
+	"name": "dou-cli",
+	"version": "0.0.9",
 	"description": "",
 	"repository": "",
 	"license": "MIT",
@@ -18,31 +18,31 @@
 	"main": "dist/bin/app.js",
 	"typings": "dist/bin/app.d.ts",
 	"bin": {
-		"dou-cli-ts1": "bin/dou-cli-ts1"
+		"dou-cli": "bin/dou-cli"
 	},
 	"files": [
 		"bin",
 		"dist"
 	],
 	"devDependencies": {
-		"@types/chai": "^4.0.0",
-		"@types/commander": "^2.3.31",
-		"@types/mocha": "^2.2.39",
-		"@types/node": "^7.0.5",
-		"@types/sinon": "^2.3.0",
-		"chai": "^4.0.1",
-		"mocha": "^3.2.0",
-		"prettier": "^1.14.2",
-		"rimraf": "^2.6.1",
-		"sinon": "^2.3.2",
-		"ts-node": "^3.0.4",
-		"typescript": "^2.2.1"
+		"@types/chai": "4.0.0",
+		"@types/commander": "2.3.31",
+		"@types/mocha": "2.2.39",
+		"@types/node": "7.0.5",
+		"@types/sinon": "2.3.0",
+		"chai": "4.0.1",
+		"mocha": "3.2.0",
+		"prettier": "1.14.2",
+		"rimraf": "2.6.1",
+		"sinon": "2.3.2",
+		"ts-node": "3.0.4",
+		"typescript": "2.2.1"
 	},
 	"dependencies": {
 		"@types/inquirer": "0.0.43",
-		"chalk": "^2.4.1",
-		"commander": "^2.9.0",
-		"figlet": "^1.2.0",
-		"inquirer": "^6.2.0"
+		"chalk": "2.4.1",
+		"commander": "2.9.0",
+		"figlet": "1.2.0",
+		"inquirer": "6.2.0"
 	}
 }

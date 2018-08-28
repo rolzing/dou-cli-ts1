@@ -17,7 +17,7 @@ export class App {
 
     this.program
       .version(this.package.version)
-      .command("write [message]", "say hello!")
+      .command("create", "Mount app")
       .parse(process.argv);
   }
 }

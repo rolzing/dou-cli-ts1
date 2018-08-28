@@ -1,6 +1,6 @@
 import * as commander from "commander";
 import { Writer } from "../writer";
-import { DouCliCreate } from "./dou-cli-create";
+import { DouCliCreate } from "../scripts/dou-cli-create";
 import { AuthSetup } from "../scripts/auth-setup";
 import * as inquirer from 'inquirer';
 
