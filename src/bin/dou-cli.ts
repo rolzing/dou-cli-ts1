@@ -3,7 +3,7 @@ import chalk from "chalk";
 const figlet = require("figlet");
 
 export class Dou {
-  private program: commander.CommanderStatic;
+  private program: any;
   private package: any;
 
   constructor() {

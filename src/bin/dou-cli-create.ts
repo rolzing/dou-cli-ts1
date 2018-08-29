@@ -5,7 +5,7 @@ import * as inquirer from 'inquirer';
 
 
 export class DouCreate {
-  private program: commander.CommanderStatic;
+  private program: any;
   private package: any;
   douCliCreate: DouCliCreate;
   authSetup: AuthSetup;
