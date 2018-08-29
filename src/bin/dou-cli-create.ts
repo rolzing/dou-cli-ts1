@@ -1,14 +1,12 @@
 import * as commander from "commander";
-import { Writer } from "../writer";
 import { DouCliCreate } from "../scripts/dou-cli-create";
 import { AuthSetup } from "../scripts/auth-setup";
 import * as inquirer from 'inquirer';
 
 
-export class Write {
+export class DouCreate {
   private program: commander.CommanderStatic;
   private package: any;
-  private writer: Writer;
   douCliCreate: DouCliCreate;
   authSetup: AuthSetup;
   frameworkToClone:any;
@@ -31,7 +29,6 @@ export class Write {
   constructor() {
     this.program = commander;
     this.package = require("../../package.json");
-    this.writer = new Writer();
     this.douCliCreate = new DouCliCreate();
   }
 
@@ -55,5 +52,5 @@ export class Write {
   }
 }
 
-let app = new Write();
+let app = new DouCreate();
 app.initialize();

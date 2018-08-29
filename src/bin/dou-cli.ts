@@ -2,7 +2,7 @@ import * as commander from "commander";
 import chalk from "chalk";
 const figlet = require("figlet");
 
-export class App {
+export class Dou {
   private program: commander.CommanderStatic;
   private package: any;
 
@@ -22,5 +22,5 @@ export class App {
   }
 }
 
-let app = new App();
+let app = new Dou();
 app.initialize();
